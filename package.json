@@ -1,0 +1,8 @@
+{
+  "name": "to-do-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:PauloHFS/to-do-api.git",
+  "author": "Paulo Hernane <paulohernane10@gmail.com>",
+  "license": "MIT"
+}
