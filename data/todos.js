@@ -1,14 +1,38 @@
 let todos = [
   {
     id: 0,
-    title: 'first task title',
-    description: 'first task description',
+    title: '#00 task title',
+    description: '#00 task description',
+  },
+  {
+    id: 1,
+    title: '#01 task title',
+    description: '#01 task description',
+  },
+  {
+    id: 2,
+    title: '#02 task title',
+    description: '#02 task description',
+  },
+  {
+    id: 3,
+    title: '#03 task title',
+    description: '#03 task description',
+  },
+  {
+    id: 4,
+    title: '#04 task title',
+    description: '#04 task description',
   },
 ];
 
 const create = data => {
   let newEntry = { id: Date.now(), ...data };
-  todos.push(newEntry);
+
+  if (todos.length != 20) {
+    todos.push(newEntry);
+  }
+
   return newEntry;
 };
 
@@ -17,17 +41,17 @@ const read = () => {
 };
 
 const update = (id, { title, description }) => {
-  let isUpdated = todos.some(value => {
-    let isValue = false;
+  let isUpdated = false;
+
+  todos = todos.map(value => {
+    let newValue = value;
 
     if (value.id == id) {
-      value.title = title;
-      value.description = description;
-
-      isValue = true;
+      isUpdated = true;
+      newValue = [value.id, title, description];
     }
 
-    return isValue;
+    return newValue;
   });
 
   return isUpdated;
