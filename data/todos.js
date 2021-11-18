@@ -34,13 +34,18 @@ const update = (id, { title, description }) => {
 };
 
 const del = id => {
-  for (var i = 0; i < todos.length; i++) {
-    if (todos[i].id == id) {
-      todos.splice(i, 1);
-      return true;
-    }
-  }
-  return false;
+  let isDeleted = false;
+
+  todos = todos.reduce((acc, todo) => {
+    const nextTodos = [...acc];
+
+    if (todo.id !== id) nextTodos.push(todo);
+    else isDeleted = true;
+
+    return nextTodos;
+  }, []);
+
+  return isDeleted;
 };
 
 export { create, read, update, del };
