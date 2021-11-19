@@ -21,17 +21,15 @@ todoRouter.get('/', (request, response) => {
 });
 
 todoRouter.put('/:id', (request, response) => {
-  let responseBody = {};
-  let status_code = 200;
+  let responseBody = {
+    error: true,
+    message: "can't update",
+  };
+  let status_code = 400;
 
   if (request.body && update(request.params.id, request.body)) {
     responseBody = { id: request.params.id, ...request.body };
-  } else {
-    status_code = 400;
-    responseBody = {
-      error: true,
-      message: "can't update",
-    };
+    status_code = 200;
   }
 
   response.status(status_code).send(responseBody);
@@ -46,6 +44,7 @@ todoRouter.delete('/:id', (request, response) => {
 
   if (request.body && del(Number.parseInt(request.params.id))) {
     responseBody = { error: false, message: 'Sucess!' };
+    status_code = 200;
   }
 
   response.status(status_code).send(responseBody);
