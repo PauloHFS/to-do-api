@@ -1,26 +1,26 @@
 let todos = [
   {
-    id: 0,
+    id: 1637336376732,
     title: '#00 task title',
     description: '#00 task description',
   },
   {
-    id: 1,
+    id: 1637336376733,
     title: '#01 task title',
     description: '#01 task description',
   },
   {
-    id: 2,
+    id: 1637336376734,
     title: '#02 task title',
     description: '#02 task description',
   },
   {
-    id: 3,
+    id: 1637336376735,
     title: '#03 task title',
     description: '#03 task description',
   },
   {
-    id: 4,
+    id: 1637336376736,
     title: '#04 task title',
     description: '#04 task description',
   },
@@ -54,7 +54,7 @@ const update = (id, { title, description }) => {
 
     if (value.id == id) {
       isUpdated = true;
-      newValue = [value.id, title, description];
+      newValue = { id: value.id, title: title, description: description };
     }
 
     return newValue;

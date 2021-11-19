@@ -31,8 +31,11 @@ todoRouter.put('/:id', (request, response) => {
   };
   let status_code = 400;
 
-  if (request.body && update(request.params.id, request.body)) {
-    responseBody = { id: request.params.id, ...request.body };
+  if (
+    request.body &&
+    update(Number.parseInt(request.params.id), request.body)
+  ) {
+    responseBody = { id: Number.parseInt(request.params.id), ...request.body };
     status_code = 200;
   }
 
