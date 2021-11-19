@@ -20,6 +20,10 @@ todoRouter.get('/', (request, response) => {
   response.status(200).send(read());
 });
 
+todoRouter.get('/:id', (request, response) => {
+  response.status(200).send(read(Number.parseInt(request.params.id)));
+});
+
 todoRouter.put('/:id', (request, response) => {
   let responseBody = {
     error: true,

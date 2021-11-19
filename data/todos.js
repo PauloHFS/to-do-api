@@ -36,8 +36,14 @@ const create = data => {
   return newEntry;
 };
 
-const read = () => {
-  return todos;
+const read = (id = undefined) => {
+  let data = todos;
+
+  if (id != undefined) {
+    data = todos.find(todo => todo.id === id);
+  }
+
+  return data;
 };
 
 const update = (id, { title, description }) => {
